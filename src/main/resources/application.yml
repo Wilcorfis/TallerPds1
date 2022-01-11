@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc://postgresql://ec2-3-224-157-224.compute-1.amazonaws.com:5432/d2gfs2qua4992u
+    url: jdbc:postgresql://ec2-3-224-157-224.compute-1.amazonaws.com:5432/d2gfs2qua4992u
     username: adngmfcejetfdk
     password: f30f671067c16b8a139e749cd231227df77b32654af6487c0339326fdb1b917e
     platform: postgres
