@@ -35,9 +35,6 @@ public class Project extends EntityBase{
     private Date endDate;
 
 
-
-
-
     @JsonManagedReference
     @OneToOne(mappedBy = "project",cascade = CascadeType.ALL)
     @JoinColumn(name="backlog_id")

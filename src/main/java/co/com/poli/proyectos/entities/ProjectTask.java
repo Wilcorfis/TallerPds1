@@ -31,11 +31,11 @@ public class ProjectTask extends EntityBase {
     private String acceptanceCriteria;
 
     public enum Status {
-        Not_STARTED, In_PROGRESS, COMPLETED, DELETED
+        NOT_STARTED, IN_PROGRESS, COMPLETED, DELETED
     }
 
     @Column(name="status")
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     @Column(name="priority")
@@ -55,11 +55,6 @@ public class ProjectTask extends EntityBase {
 
     @Column(name="project_identifier", updatable=false)
     private String projectIdentifier;
-
-
-
-
-
 
     @JsonBackReference
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
