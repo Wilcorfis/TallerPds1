@@ -30,9 +30,7 @@ public class ProjectTask extends EntityBase {
     @Column(name="acceptance_criteria")
     private String acceptanceCriteria;
 
-    public enum Status {
-        NOT_STARTED, IN_PROGRESS, COMPLETED, DELETED
-    }
+
 
     @Column(name="status")
     @Enumerated(EnumType.STRING)
