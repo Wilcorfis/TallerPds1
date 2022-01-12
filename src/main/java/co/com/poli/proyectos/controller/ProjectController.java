@@ -19,7 +19,7 @@ public class ProjectController {
         return service.findAll();
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Project> findByIdTasks(@PathVariable Long id){
+    public List<Project> findByIdTasks(@PathVariable Long id){
         return service.findByIdTasks(id);
     }
     //findByIdTasks

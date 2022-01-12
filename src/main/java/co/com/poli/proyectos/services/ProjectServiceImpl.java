@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,13 +28,8 @@ public class ProjectServiceImpl implements ProjectService {
         return repository.save(project);
     }
     @Override
-    public ResponseEntity<Project> findByIdTasks(Long id)  {
-        Optional<Project> project = Optional.of(repository.getById(id));
-        if (project.isPresent()) {
-            return new ResponseEntity<Project>(project.get(), HttpStatus.OK);
-        } else {
-            throw new RecordNotFoundException();
-        }
+    public List<Project> findByIdTasks(Long id)  {
+        return repository.findAllById(Collections.singleton(id));
     }
 
 }

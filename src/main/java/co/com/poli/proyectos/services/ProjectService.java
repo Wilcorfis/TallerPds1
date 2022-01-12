@@ -9,5 +9,5 @@ import java.util.List;
 public interface ProjectService {
     List<Project> findAll();
     Project create(Project project);
-    ResponseEntity<Project> findByIdTasks(Long id) ;
+    List<Project> findByIdTasks(Long id) ;
 }
