@@ -2,7 +2,7 @@ package co.com.poli.proyectos.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,6 +16,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
+
 @Table(name = "projectTask")
 public class ProjectTask extends EntityBase {
 
@@ -55,7 +56,7 @@ public class ProjectTask extends EntityBase {
     private String projectIdentifier;
 
     @JsonBackReference
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="backlog_id")
     private Backlog backlog;
 
