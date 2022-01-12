@@ -27,6 +27,15 @@ public class ProjectController {
     public List<ProjectTask> findByIdeTasks(@PathVariable String id){
         return service.findByIdeTasks(id);
     }
+    @GetMapping("/{id}")
+    public double totaldeHoras(@PathVariable String id){
+        return service.totaldeHoras(id);
+    }
+    @GetMapping("/{id}/{estado}")
+    public double totaldeHorasEstado(@PathVariable String id,@PathVariable String estado){
+        return service.totaldeHorasEstado(id,estado);
+    }
+
     //findByIdTasks
     @PostMapping
     public Project create(@RequestBody Project project){

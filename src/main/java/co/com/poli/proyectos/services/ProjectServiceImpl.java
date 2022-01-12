@@ -35,18 +35,37 @@ public class ProjectServiceImpl implements ProjectService {
     }*/
     @Override
     public List<ProjectTask> findByIdeTasks(String id)  {
-
-
         List<Project> p=findAll();
         for (int i = 0; i < p.size(); i++) {
             if(p.get(i).getProjectIdentifier().equals(id)){
                 return p.get(i).getBacklog().getProjectTasks();
-
+            }
+        }
+        throw new  RecordNotFoundException();
+    }
+    @Override
+    public double totaldeHoras (String id){
+        double horas=0;
+        List<ProjectTask> p=findByIdeTasks(id);
+        for (int i = 0; i < p.size(); i++) {
+            if(!p.get(i).getStatus().equals("DELETED")) {
+                horas += p.get(i).getHours();
             }
 
         }
+        return horas;
+    }
+    @Override
+    public double totaldeHorasEstado (String id,String estado){
+        double horas=0;
+        List<ProjectTask> p=findByIdeTasks(id);
+        for (int i = 0; i < p.size(); i++) {
+            if(p.get(i).getStatus().equals(estado)) {
+                horas += p.get(i).getHours();
+            }
 
-        throw new  RecordNotFoundException();
+        }
+        return horas;
     }
 
 }
