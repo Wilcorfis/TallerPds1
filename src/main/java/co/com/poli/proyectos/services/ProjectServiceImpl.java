@@ -34,13 +34,13 @@ public class ProjectServiceImpl implements ProjectService {
         return repository.findAllById(Collections.singleton(id));
     }*/
     @Override
-    public Project findByIdeTasks(String id)  {
+    public List<ProjectTask> findByIdeTasks(String id)  {
 
 
         List<Project> p=findAll();
         for (int i = 0; i < p.size(); i++) {
             if(p.get(i).getProjectIdentifier().equals(id)){
-                return p.get(i);
+                return p.get(i).getBacklog().getProjectTasks();
 
             }
 

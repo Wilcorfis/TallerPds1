@@ -24,7 +24,7 @@ public class ProjectController {
         return service.findByIdTasks(id);
     }*/
     @GetMapping("/{id}")
-    public Project findByIdeTasks(@PathVariable String id){
+    public List<ProjectTask> findByIdeTasks(@PathVariable String id){
         return service.findByIdeTasks(id);
     }
     //findByIdTasks

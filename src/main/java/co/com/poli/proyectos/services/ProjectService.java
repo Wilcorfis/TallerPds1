@@ -11,5 +11,5 @@ public interface ProjectService {
     List<Project> findAll();
     Project create(Project project);
     /*List<Project> findByIdTasks(Long id) ;*/
-    Project findByIdeTasks(String id) ;
+    List<ProjectTask> findByIdeTasks(String id) ;
 }
