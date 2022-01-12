@@ -26,8 +26,9 @@ public class Backlog extends EntityBase{
     private Project project;
 
     ////
-    @JsonBackReference
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "backlog")
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "backlog", cascade = CascadeType.PERSIST)
     private List<ProjectTask> projectTask;
 
     @Override
