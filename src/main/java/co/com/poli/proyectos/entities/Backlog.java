@@ -27,7 +27,7 @@ public class Backlog extends EntityBase{
 
     ////
     @JsonManagedReference
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="projectTask_id")
     private List<ProjectTask> projectTask;
 
