@@ -57,7 +57,7 @@ public class ProjectTask extends EntityBase {
 
     @JsonBackReference
     @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name="backlog_id")
+    @JoinColumn(name="backlog_id2")
     private Backlog backlog;
 
     @Override
