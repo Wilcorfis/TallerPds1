@@ -55,7 +55,7 @@ public class ProjectTask extends EntityBase {
     @Column(name="project_identifier", updatable=false)
     private String projectIdentifier;
 
-    @JsonBackReference
+    @JsonManagedReference
     @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="backlog_id")
     private Backlog backlog;
