@@ -21,15 +21,14 @@ public class Backlog extends EntityBase{
     private String projectIdentifier;
 
     @JsonBackReference
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne
     @JoinColumn(name="project_id")
     private Project project;
 
     ////
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name="project_task_id")
-
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="projectTask_id")
     private List<ProjectTask> projectTask;
 
     @Override
