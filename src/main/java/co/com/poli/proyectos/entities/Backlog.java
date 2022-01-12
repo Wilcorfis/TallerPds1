@@ -29,7 +29,7 @@ public class Backlog extends EntityBase{
 
     @JsonManagedReference
     @OneToMany(mappedBy = "backlog", cascade = CascadeType.PERSIST)
-    private List<ProjectTask> projectTask;
+    private List<ProjectTask> projectTasks;
 
     @Override
     public boolean equals(Object o) {
