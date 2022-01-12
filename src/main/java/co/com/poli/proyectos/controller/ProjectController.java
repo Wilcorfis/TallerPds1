@@ -1,6 +1,7 @@
 package co.com.poli.proyectos.controller;
 
 import co.com.poli.proyectos.entities.Project;
+import co.com.poli.proyectos.entities.ProjectTask;
 import co.com.poli.proyectos.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +19,13 @@ public class ProjectController {
     public List<Project> findAll(){
         return service.findAll();
     }
-    @GetMapping("/{id}")
+    /*@GetMapping("/{id}")
     public List<Project> findByIdTasks(@PathVariable Long id){
         return service.findByIdTasks(id);
+    }*/
+    @GetMapping("/{id}")
+    public Project findByIdeTasks(@PathVariable Long id){
+        return service.findByIdeTasks(id);
     }
     //findByIdTasks
     @PostMapping
