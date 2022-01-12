@@ -62,7 +62,7 @@ public class ProjectTask extends EntityBase {
 
 
     @JsonManagedReference
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
     @JoinColumn(name="backlog_id")
     private Backlog backlog;
 
