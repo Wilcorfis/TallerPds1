@@ -1,5 +1,6 @@
 package co.com.poli.proyectos.entities;
 
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
@@ -56,7 +57,9 @@ public class ProjectTask extends EntityBase {
     private String projectIdentifier;
 
 
-    @JsonManagedReference
+
+
+    @JsonBackReference
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="backlog_id")
     private Backlog backlog;

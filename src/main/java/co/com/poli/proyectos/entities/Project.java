@@ -1,5 +1,6 @@
 package co.com.poli.proyectos.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,9 +34,11 @@ public class Project extends EntityBase{
     @Column(name="end_date")
     private Date endDate;
 
-    @JsonManagedReference
-    @OneToOne(mappedBy = "project",cascade = CascadeType.PERSIST)
-    @JoinColumn(name="backlog_id")
+
+
+    @JsonBackReference
+    @OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="backlog_id2")
     private Backlog backlog;
 
     @Override
