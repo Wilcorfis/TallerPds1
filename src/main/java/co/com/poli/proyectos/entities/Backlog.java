@@ -27,8 +27,7 @@ public class Backlog extends EntityBase{
 
     ////
     @JsonBackReference
-    @OneToMany(cascade = CascadeType.MERGE)
-    @JoinColumn(name="projectTask_id", nullable = false)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "backlog")
     private List<ProjectTask> projectTask;
 
     @Override
