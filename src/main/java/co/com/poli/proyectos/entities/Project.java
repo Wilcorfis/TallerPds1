@@ -40,7 +40,7 @@ public class Project extends EntityBase{
 
     @JsonManagedReference
     @OneToOne(mappedBy = "project",cascade = CascadeType.PERSIST)
-    @JoinColumn(name="backlog_id2")
+    @JoinColumn(name="backlog_id")
     private Backlog backlog;
 
     @Override
