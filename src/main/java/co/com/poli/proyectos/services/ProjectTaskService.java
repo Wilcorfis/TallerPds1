@@ -7,5 +7,4 @@ import java.util.List;
 public interface ProjectTaskService {
     List<ProjectTask> findAll();
     ProjectTask create(ProjectTask projectTask);
-    ProjectTask delete(ProjectTask projectTask);
 }

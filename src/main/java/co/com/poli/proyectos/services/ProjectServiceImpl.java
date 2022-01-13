@@ -2,8 +2,10 @@ package co.com.poli.proyectos.services;
 
 import co.com.poli.proyectos.entities.Project;
 import co.com.poli.proyectos.entities.ProjectTask;
+import co.com.poli.proyectos.entities.Status;
 import co.com.poli.proyectos.exception.RecordNotFoundException;
 import co.com.poli.proyectos.repository.ProjectRepository;
+import co.com.poli.proyectos.repository.ProjectTaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -16,6 +18,8 @@ import java.util.List;
 public class ProjectServiceImpl implements ProjectService {
     @Autowired
     private ProjectRepository repository;
+    @Autowired
+    private ProjectTaskRepository repository2;
 
     @Override
     public List<Project> findAll() {
@@ -69,7 +73,9 @@ public class ProjectServiceImpl implements ProjectService {
         List<ProjectTask> p=findByIdeTasks(id);
         for (int i = 0; i < p.size(); i++) {
             if (p.get(i).getId()==idtask){
-                return service.delete(p.get(i));
+                p.get(i).setStatus(Status.DELETED);
+                repository2.delete(p.get(i));
+                return p.get(i);
 
             }
 

@@ -16,12 +16,6 @@ public class ProjectTaskServiceImpl implements ProjectTaskService{
     public List<ProjectTask> findAll() {
         return repository.findAll();
     }
-    @Override
-    public ProjectTask delete(ProjectTask projectTask) {
-        projectTask.setStatus(Status.DELETED);
-        repository.delete(projectTask);
-        return projectTask;
-    }
 
     @Override
     public ProjectTask create(ProjectTask projectTask) {
