@@ -35,6 +35,10 @@ public class ProjectController {
     public double totaldeHorasEstado(@PathVariable String id,@PathVariable String estado){
         return service.totaldeHorasEstado(id,estado);
     }
+    @DeleteMapping("/{idtask}/{id}")
+    public ProjectTask deleteTask(@PathVariable Long idtask,@PathVariable String id){
+        return service.deleteTask(idtask,id);
+    }
 
     //findByIdTasks
     @PostMapping

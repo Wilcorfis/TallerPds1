@@ -14,4 +14,5 @@ public interface ProjectService {
     List<ProjectTask> findByIdeTasks(String id);
     double totaldeHoras(String id);
     double totaldeHorasEstado (String id,String estado);
+    ProjectTask deleteTask(Long idtask,String id);
 }

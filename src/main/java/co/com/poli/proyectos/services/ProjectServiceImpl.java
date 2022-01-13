@@ -63,9 +63,20 @@ public class ProjectServiceImpl implements ProjectService {
             if(p.get(i).getStatus().equals(estado)) {
                 horas += p.get(i).getHours();
             }
-
         }
         return horas;
     }
+    @Override
+    public ProjectTask deleteTask(Long idtask,String id) {
+        ProjectTaskService service = new ProjectTaskServiceImpl();
+        List<ProjectTask> p=findByIdeTasks(id);
+        for (int i = 0; i < p.size(); i++) {
+            if (p.get(i).getId()==idtask){
+                return service.delete(p.get(i));
 
+            }
+
+        }
+        throw new  RecordNotFoundException();
+    }
 }
