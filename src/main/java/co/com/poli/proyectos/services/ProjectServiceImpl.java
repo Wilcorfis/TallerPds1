@@ -5,15 +5,12 @@ import co.com.poli.proyectos.entities.ProjectTask;
 import co.com.poli.proyectos.exception.RecordNotFoundException;
 import co.com.poli.proyectos.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
+
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -68,7 +65,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
     @Override
     public ProjectTask deleteTask(Long idtask,String id) {
-        ProjectTaskService service = new ProjectTaskServiceImpl();
+        ProjectTaskService service = new ProjectTaskService();
         List<ProjectTask> p=findByIdeTasks(id);
         for (int i = 0; i < p.size(); i++) {
             if (p.get(i).getId()==idtask){
