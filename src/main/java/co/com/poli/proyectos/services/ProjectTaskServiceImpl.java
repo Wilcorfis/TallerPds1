@@ -19,8 +19,8 @@ public class ProjectTaskServiceImpl implements ProjectTaskService{
     @Override
     public ProjectTask delete(ProjectTask projectTask) {
         projectTask.setStatus(Status.DELETED);
-        return repository.delete(projectTask);
-        
+        repository.delete(projectTask);
+        return projectTask;
     }
 
     @Override

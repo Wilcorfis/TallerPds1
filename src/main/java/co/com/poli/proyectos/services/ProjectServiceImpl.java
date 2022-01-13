@@ -65,7 +65,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
     @Override
     public ProjectTask deleteTask(Long idtask,String id) {
-        ProjectTaskService service = new ProjectTaskService();
+        ProjectTaskServiceImpl service = new ProjectTaskServiceImpl();
         List<ProjectTask> p=findByIdeTasks(id);
         for (int i = 0; i < p.size(); i++) {
             if (p.get(i).getId()==idtask){
