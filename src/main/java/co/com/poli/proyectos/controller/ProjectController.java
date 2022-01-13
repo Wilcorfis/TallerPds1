@@ -27,7 +27,7 @@ public class ProjectController {
     public List<ProjectTask> findByIdeTasks(@PathVariable String id){
         return service.findByIdeTasks(id);
     }
-    @GetMapping("/{id}")
+    @GetMapping("/hours/{id}")
     public double totaldeHoras(@PathVariable String id){
         return service.totaldeHoras(id);
     }
