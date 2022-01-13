@@ -31,7 +31,7 @@ public class ProjectController {
     public double totaldeHoras(@PathVariable String id){
         return service.totaldeHoras(id);
     }
-    @GetMapping("/{id}/{estado}")
+    @GetMapping("/hours/{id}/{estado}")
     public double totaldeHorasEstado(@PathVariable String id,@PathVariable String estado){
         return service.totaldeHorasEstado(id,estado);
     }

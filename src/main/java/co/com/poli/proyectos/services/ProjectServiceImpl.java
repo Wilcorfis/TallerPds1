@@ -60,7 +60,7 @@ public class ProjectServiceImpl implements ProjectService {
         double horas=0;
         List<ProjectTask> p=findByIdeTasks(id);
         for (int i = 0; i < p.size(); i++) {
-            if(p.get(i).getStatus().equals(estado)) {
+            if(p.get(i).getStatus().toString().equals(estado)) {
                 horas += p.get(i).getHours();
             }
         }
