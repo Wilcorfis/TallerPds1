@@ -34,12 +34,16 @@ public class ProjectServiceImpl implements ProjectService {
 
 
         try {
-            repository.save(project);
+            if(project.getProjectIdentifier().length()>0
+            && project.getProjectName().length()>0){
+                return repository.save(project);
+            }
         }catch (Exception e){
             throw new BadRequest();
 
         }
-        return repository.save(project);
+        throw new BadRequest();
+
 
 
 
