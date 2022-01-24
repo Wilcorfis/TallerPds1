@@ -45,7 +45,7 @@ public class ProjectTask extends EntityBase {
 
     @Column(name="hours")
     @Min(value = 0L, message = "The value must be positive")
-    @Length(min = 1, max = 8, message = "Name must be between 1 and 5 characters long")
+    @Size(min = 1, max = 8, message = "Name must be between 1 and 5 characters long")
     private Double hours;
 
     @Column(name="start_date")

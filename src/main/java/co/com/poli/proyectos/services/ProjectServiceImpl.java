@@ -3,11 +3,13 @@ package co.com.poli.proyectos.services;
 import co.com.poli.proyectos.entities.Project;
 import co.com.poli.proyectos.entities.ProjectTask;
 import co.com.poli.proyectos.entities.Status;
+import co.com.poli.proyectos.exception.BadRequestException;
 import co.com.poli.proyectos.exception.RecordNotFoundException;
 import co.com.poli.proyectos.repository.ProjectRepository;
 import co.com.poli.proyectos.repository.ProjectTaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 
@@ -31,7 +33,7 @@ public class ProjectServiceImpl implements ProjectService {
         Project projectsave=new Project();
         try{
         projectsave= repository.save(project);
-        }catch(DataAcessException){
+        }catch(DataAccessException e){
             throw new BadRequestException();
 
         }

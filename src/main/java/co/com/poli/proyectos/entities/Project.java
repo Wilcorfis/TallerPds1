@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
-import javax.validation.constraints.Length;
+//import javax.validation.constraints.Length;
 
 
 import javax.persistence.*;
@@ -26,8 +26,8 @@ public class Project extends EntityBase{
 
     @Column(name="project_identifier",unique=true, updatable=false)
     @NotEmpty (message = "Name may not be blank") 
-    @Length(max=7)
-    @Length(min=5)
+    @Size(max=7)
+    @Size(min=5)
     private String projectIdentifier;
 
     @Column(name="description")
