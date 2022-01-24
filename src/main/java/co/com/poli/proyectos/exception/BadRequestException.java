@@ -3,7 +3,7 @@ package co.com.poli.proyectos.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(value = HttpStatus.NOT_FOUND,
+@ResponseStatus(value = HttpStatus.BAD_REQUEST,
         reason = "Error de validación de parámetros")
 public class BadRequestException extends RuntimeException {
    
