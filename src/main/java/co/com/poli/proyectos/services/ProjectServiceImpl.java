@@ -36,9 +36,13 @@ public class ProjectServiceImpl implements ProjectService {
     public Project create( Project project) {
         Project p= repository.save(project);
         Map<String,Object> response = new HashMap<String,Object>();
-        response.put("request",p);
-        response.put("status","success");
-        throw new BadRequest();
+        try {
+            response.put("request", p);
+            response.put("status", "success");
+        }catch (Exception e){
+            throw new BadRequest();
+        }
+        return p;
     }
 
     /*public List<Project> findByIdTasks(Long id)  {
