@@ -33,7 +33,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Map<String,Object> create( Project project) {
+    public Project create( Project project) {
         Project p= repository.save(project);
         Map<String,Object> response = new HashMap<String,Object>();
         try {
@@ -42,7 +42,7 @@ public class ProjectServiceImpl implements ProjectService {
         }catch (Exception e){
             response.put("status","Your request is invalid");
         }
-        return response;
+        return p;
 
 
     }

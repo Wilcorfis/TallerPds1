@@ -43,7 +43,7 @@ public class ProjectController {
 
     //findByIdTasks
     @PostMapping
-    public Map<String,Object> create(@RequestBody Project project){
+    public Project create(@RequestBody Project project){
         return service.create(project);
     }
 }
