@@ -3,14 +3,18 @@ package co.com.poli.proyectos.services;
 import co.com.poli.proyectos.entities.Project;
 import co.com.poli.proyectos.entities.ProjectTask;
 import co.com.poli.proyectos.entities.Status;
+import co.com.poli.proyectos.exception.BadRequest;
 import co.com.poli.proyectos.exception.RecordNotFoundException;
 import co.com.poli.proyectos.repository.ProjectRepository;
 import co.com.poli.proyectos.repository.ProjectTaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,13 +36,9 @@ public class ProjectServiceImpl implements ProjectService {
     public Project create( Project project) {
         Project p= repository.save(project);
         Map<String,Object> response = new HashMap<String,Object>();
-        try{
         response.put("request",p);
         response.put("status","success");
-        }catch(Exception e){
-            response.put("status","Your request is invalid");
-        }
-        return (Project) response.get("request");
+        throw new BadRequest();
     }
 
     /*public List<Project> findByIdTasks(Long id)  {
