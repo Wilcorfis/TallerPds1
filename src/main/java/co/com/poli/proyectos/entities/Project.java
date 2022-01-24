@@ -25,14 +25,14 @@ public class Project extends EntityBase{
     private String projectName;
      
     @NotEmpty (message = "Name may not be blank")
-    @NotNull
-    @Length(min = 5, max = 7)
+    @NotNull  
     @Column(name="project_identifier",unique=true, updatable=false)
-    
+    @Length(min = 5, max = 7)
 
     
     private String ProjectIdentifier;
     @NotEmpty (message = "Name may not be blank")
+    @NotNull
     @Column(name="description")
     
 
