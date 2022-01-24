@@ -8,9 +8,6 @@ import co.com.poli.proyectos.repository.ProjectRepository;
 import co.com.poli.proyectos.repository.ProjectTaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.dao.DataAccessException;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 
@@ -30,17 +27,9 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public ResponseEntity<String> create(Project project) {
-        try{
-            repository.save(project);
+    public Project create(Project project) {
 
-        }catch(DataAccessException e){
-            return ResponseEntity.badRequest()
-                    .body("400 bad request");
-
-        }
-        return ResponseEntity.status(HttpStatus.OK)
-                .body("project creado");
+        return repository.save(project);
 
     }
 

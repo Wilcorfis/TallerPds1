@@ -7,14 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
 @RestController
-
 @RequestMapping("/project")
-
 public class ProjectController {
     @Autowired
     private ProjectService service;
@@ -45,8 +42,7 @@ public class ProjectController {
 
     //findByIdTasks
     @PostMapping
-    public ResponseEntity<String> create( @RequestBody Project project){
-
-          return service.create(project);
+    public Project create(@RequestBody Project project){
+        return service.create(project);
     }
 }
