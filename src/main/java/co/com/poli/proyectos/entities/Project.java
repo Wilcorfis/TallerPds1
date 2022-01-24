@@ -17,16 +17,16 @@ import java.util.Date;
 @Table(name="project")
 public class Project extends EntityBase{
     @Column(name="project_name",unique=true)
-    @NotNull
+    @NotBlank
     private String projectName;
 
     @Column(name="project_identifier",unique=true, updatable=false)
-    @NotNull
-    @Size(min = 5, max = 7)
+    @NotBlank
+    @Size(min = 5, max = 7, message = "Name must be between 5 and 7 characters long")
     private String ProjectIdentifier;
 
     @Column(name="description")
-    @NotNull
+    @NotBlank
     private String description;
 
     @Column(name="start_date")
