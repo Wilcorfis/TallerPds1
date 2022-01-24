@@ -35,7 +35,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Project create( Project project) {
         if(!project.getProjectIdentifier().equals("")
-                && !project.getProjectName().equals("")){
+                || !project.getProjectName().equals("")){
             return repository.save(project);
         }
 
