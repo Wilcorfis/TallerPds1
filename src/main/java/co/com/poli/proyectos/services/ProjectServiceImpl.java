@@ -30,17 +30,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project create( Project project) {
-
-        Map<String,Object> response = new HashMap<String,Object>();
-        try {
-            response.put("request", project);
-            response.put("status", "success");
-        }catch (IllegalArgumentException e){
-            response.put("status","Your request is invalid");
-        }
         return repository.save(project);
-
-
     }
 
     /*public List<Project> findByIdTasks(Long id)  {
