@@ -4,16 +4,17 @@ import co.com.poli.proyectos.entities.Project;
 import co.com.poli.proyectos.entities.ProjectTask;
 import co.com.poli.proyectos.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
 @RestController
+
 @RequestMapping("/project")
+
 public class ProjectController {
     @Autowired
     private ProjectService service;
@@ -44,18 +45,8 @@ public class ProjectController {
 
     //findByIdTasks
     @PostMapping
-    public ResponseEntity<String> create(@RequestBody Project project){
-        try{
-            service.create(project);
+    public ResponseEntity<String> create( @RequestBody Project project){
 
-        }catch(DataAccessException e){
-            return ResponseEntity.badRequest()
-                    .body("400 bad request");
-
-        }
-        return ResponseEntity.status(HttpStatus.OK)
-                .body("project creado");
-
-
+          return service.create(project);
     }
 }
