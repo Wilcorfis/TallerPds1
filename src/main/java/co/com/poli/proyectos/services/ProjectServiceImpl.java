@@ -3,6 +3,7 @@ package co.com.poli.proyectos.services;
 import co.com.poli.proyectos.entities.Project;
 import co.com.poli.proyectos.entities.ProjectTask;
 import co.com.poli.proyectos.entities.Status;
+import co.com.poli.proyectos.exception.BadRequest;
 import co.com.poli.proyectos.exception.RecordNotFoundException;
 import co.com.poli.proyectos.repository.ProjectRepository;
 import co.com.poli.proyectos.repository.ProjectTaskRepository;
@@ -31,14 +32,15 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Project create( Project project) {
 
-        Map<String,Object> response = new HashMap<String,Object>();
+
         try {
-            response.put("request", project);
-            response.put("status", "success");
+            repository.save(project);
         }catch (Exception e){
-            response.put("status","Your request is invalid");
+            throw new BadRequest();
+
         }
         return repository.save(project);
+
 
 
     }
