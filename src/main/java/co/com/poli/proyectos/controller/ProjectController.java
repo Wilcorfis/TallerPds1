@@ -12,7 +12,9 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
+
 @RequestMapping("/project")
+
 public class ProjectController {
     @Autowired
     private ProjectService service;
@@ -43,7 +45,8 @@ public class ProjectController {
 
     //findByIdTasks
     @PostMapping
-    public Project create(@Valid @RequestBody Project project){
+    @ResponseBody
+    public Project create( @RequestBody Project project){
    
           return service.create(project);
     }
