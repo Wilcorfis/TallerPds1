@@ -38,6 +38,10 @@ public class ProjectServiceImpl implements ProjectService {
                 || !project.getProjectName().equals("")){
             return repository.save(project);
         }
+                if(!project.getProjectIdentifier().equals("")
+                && !project.getProjectName().equals("")){
+            return repository.save(project);
+        }
 
         Map<String,Object> response = new HashMap<String,Object>();
         response.put("request",project);
