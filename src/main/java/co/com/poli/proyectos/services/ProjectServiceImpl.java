@@ -28,9 +28,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project create(Project project) {
-
         return repository.save(project);
-
     }
 
     /*public List<Project> findByIdTasks(Long id)  {
