@@ -16,9 +16,9 @@ import java.util.List;
 @Entity
 @Table(name = "backlog")
 public class Backlog extends EntityBase{
-
-    @Column(name="project_identifier")
+    @Column(name="project_identifier") 
     @NotEmpty(message = "Name may not be blank")
+    
     private String projectIdentifier;
 
     @JsonBackReference

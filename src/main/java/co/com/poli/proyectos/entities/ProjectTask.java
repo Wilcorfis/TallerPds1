@@ -20,13 +20,14 @@ import java.util.Date;
 
 @Table(name = "projectTask")
 public class ProjectTask extends EntityBase {
-
     @Column(name="name")
     @NotEmpty (message = "Name may not be blank")
+    
+    
     private String name;
-
+   @NotEmpty(message = "Name may not be blank")
     @Column(name="summary")
-    @NotEmpty(message = "Name may not be blank")
+    
     private String summary;
 
     @Column(name="acceptance_criteria")
@@ -44,7 +45,7 @@ public class ProjectTask extends EntityBase {
 
     @Column(name="hours")
     @Min(value = 0L, message = "The value must be positive")
-    @Size(min = 1, max = 8, message = "Name must be between 1 and 5 characters long")
+    @Length(min = 1, max = 8, message = "Name must be between 1 and 5 characters long")
     private Double hours;
 
     @Column(name="start_date")
