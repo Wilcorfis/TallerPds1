@@ -32,18 +32,24 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project create( Project project) {
+        if(project.getProjectIdentifier().length()>0
+                && project.getProjectName().length()>0){
+            return repository.save(project);
+        }
+        Map<String,Object> response = new HashMap<String,Object>();
+        try{
 
+            response.put("request",project);
+            response.put("status","success");
 
-        try {
-            if(project.getProjectIdentifier().length()>0
-            && project.getProjectName().length()>0){
-                return repository.save(project);
-            }
-        }catch (Exception e){
-            throw new BadRequest();
+        }catch(Exception e){
+
+            response.put("status","Your request is invalid");
 
         }
-        throw new BadRequest();
+
+        return (Project) response;
+
 
 
 
