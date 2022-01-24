@@ -28,7 +28,7 @@ public class ProjectTask extends EntityBase {
    @NotEmpty(message = "Name may not be blank")
     @Column(name="summary")
     
-    private String summary;
+    private String summary; 
 
     @Column(name="acceptance_criteria")
     private String acceptanceCriteria;
