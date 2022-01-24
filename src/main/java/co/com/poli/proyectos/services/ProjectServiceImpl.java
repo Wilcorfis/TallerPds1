@@ -3,12 +3,15 @@ package co.com.poli.proyectos.services;
 import co.com.poli.proyectos.entities.Project;
 import co.com.poli.proyectos.entities.ProjectTask;
 import co.com.poli.proyectos.entities.Status;
+import co.com.poli.proyectos.exception.BadRequest;
 import co.com.poli.proyectos.exception.RecordNotFoundException;
 import co.com.poli.proyectos.repository.ProjectRepository;
 import co.com.poli.proyectos.repository.ProjectTaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 
 import java.util.List;
@@ -28,7 +31,15 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project create(Project project) {
-        return repository.save(project);
+
+        Project json = repository.save(project);
+        if (json == null) {
+            throw new BadRequest();
+        }
+        return json;
+
+
+
     }
 
     /*public List<Project> findByIdTasks(Long id)  {
