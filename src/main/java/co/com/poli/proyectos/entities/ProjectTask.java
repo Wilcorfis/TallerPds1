@@ -9,6 +9,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
@@ -21,11 +22,11 @@ import java.util.Date;
 public class ProjectTask extends EntityBase {
 
     @Column(name="name")
-    @NotBlank(message = "Name may not be blank")
+    @NotEmpty(message = "Name may not be blank")
     private String name;
 
     @Column(name="summary")
-    @NotBlank(message = "Name may not be blank")
+    @NotEmpty(message = "Name may not be blank")
     private String summary;
 
     @Column(name="acceptance_criteria")
