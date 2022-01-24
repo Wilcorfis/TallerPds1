@@ -31,11 +31,15 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Project create(@Valid Project project) {
+    public Project create( Project project) {
 
         Project json = repository.save(project);
         if (json == null) {
-            throw new BadRequest();
+            try {
+                throw new BadRequest("Error");
+            } catch (BadRequest e) {
+                e.printStackTrace();
+            }
         }
         return json;
 
