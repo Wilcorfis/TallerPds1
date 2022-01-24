@@ -33,16 +33,17 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Project create( Project project) {
+    public Map<String,Object> create( Project project) {
         Project p= repository.save(project);
         Map<String,Object> response = new HashMap<String,Object>();
         try {
             response.put("request", p);
             response.put("status", "success");
         }catch (Exception e){
-            return (Project) response;
+            response.put("status","Your request is invalid");
         }
-        return p;
+        return response;
+
 
     }
 

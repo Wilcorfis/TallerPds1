@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/project")
@@ -42,7 +43,7 @@ public class ProjectController {
 
     //findByIdTasks
     @PostMapping
-    public Project create(@RequestBody Project project){
+    public Map<String,Object> create(@RequestBody Project project){
         return service.create(project);
     }
 }

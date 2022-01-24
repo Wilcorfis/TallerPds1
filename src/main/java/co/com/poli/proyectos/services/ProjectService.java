@@ -6,10 +6,11 @@ import org.springframework.http.ResponseEntity;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 public interface ProjectService {
     List<Project> findAll();
-    Project create(Project project);
+    Map<String,Object> create(Project project);
     /*List<Project> findByIdTasks(Long id) ;*/
     List<ProjectTask> findByIdeTasks(String id);
     double totaldeHoras(String id);
