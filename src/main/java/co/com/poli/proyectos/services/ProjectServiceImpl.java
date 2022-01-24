@@ -15,7 +15,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -32,19 +34,15 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project create( Project project) {
-
-        Project json = repository.save(project);
-        if (json == null) {
-            try {
-                throw new BadRequest("Error");
-            } catch (BadRequest e) {
-                e.printStackTrace();
-            }
+        Project p= repository.save(project);
+        Map<String,Object> response = new HashMap<String,Object>();
+        try{
+        response.put("request",p);
+        response.put("status","success");
+        }catch(Exception e){
+            response.put("status","Your request is invalid");
         }
-        return json;
-
-
-
+        return (Project) response;
     }
 
     /*public List<Project> findByIdTasks(Long id)  {
