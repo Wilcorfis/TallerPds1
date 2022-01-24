@@ -31,11 +31,12 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Project create( Project project) {
+    public Map<String,Object> create( Project project) {
         if(!project.getProjectIdentifier().equals("")
                 && !project.getProjectName().equals("")){
-            return repository.save(project);
+            return (Map<String, Object>) repository.save(project);
         }
+
         Map<String,Object> response = new HashMap<String,Object>();
         try{
 
@@ -48,7 +49,7 @@ public class ProjectServiceImpl implements ProjectService {
 
         }
 
-        return (Project) response;
+        return  response;
 
 
 
