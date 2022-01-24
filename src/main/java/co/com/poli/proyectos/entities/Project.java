@@ -21,12 +21,15 @@ import java.util.Date;
 @Table(name="project")
 public class Project extends EntityBase{
     @NotEmpty(message = "Name may not be blank")
+    @NotNull
     @Column(name="project_name",unique=true)
     private String projectName;
 
+  
+    @NotEmpty (message = "Name may not be blank") 
+    @NotNull
     @Size(min = 5)
     @Size(max = 7)
-    @NotEmpty (message = "Name may not be blank") 
     @Column(name="project_identifier",unique=true, updatable=false)
     private String projectIdentifier;
 
