@@ -28,7 +28,7 @@ public class Project extends EntityBase{
     @Size(max = 7)
     @NotEmpty (message = "Name may not be blank") 
     @Column(name="project_identifier",unique=true, updatable=false)
-    private String ProjectIdentifier;
+    private String projectIdentifier;
 
     @NotEmpty (message = "Name may not be blank")
     @Column(name="description")
