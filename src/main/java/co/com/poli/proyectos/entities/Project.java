@@ -26,7 +26,7 @@ public class Project extends EntityBase{
     @Column(name="project_identifier",unique=true, updatable=false)
     @NotEmpty (message = "Name may not be blank")
     @NotBlank
-    @Length(min = 5, max = 7, message = "Name must be between 5 and 7 characters long")
+    @Size(min = 5, max = 7, message = "Name must be between 5 and 7 characters long")
     private String ProjectIdentifier;
 
     @Column(name="description")
