@@ -40,9 +40,10 @@ public class ProjectServiceImpl implements ProjectService {
             response.put("request", p);
             response.put("status", "success");
         }catch (Exception e){
-            throw new BadRequest();
+            return (Project) response;
         }
         return p;
+
     }
 
     /*public List<Project> findByIdTasks(Long id)  {
