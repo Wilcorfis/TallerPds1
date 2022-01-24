@@ -1,18 +1,26 @@
 package co.com.poli.proyectos.exception;
 
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @ControllerAdvice
 public class BadRequest extends RuntimeException {
 
-    @ExceptionHandler(IllegalArgumentException.class)
-    void handleIllegalArgumentException(HttpServletResponse response) throws IOException {
-        response.sendError(HttpStatus.BAD_REQUEST.value());
-    }
+    @org.springframework.web.bind.annotation.ExceptionHandler
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    Map<String,String> showCustomMessage(Exception e){
 
+
+        Map<String,String> response = new HashMap<>();
+        response.put("status","Your input is invalid");
+
+        return response;
+    }
 }

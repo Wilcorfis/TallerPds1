@@ -10,7 +10,7 @@ import java.util.Map;
 
 public interface ProjectService {
     List<Project> findAll();
-    Map<String,Object> create(Project project);
+    Project create(Project project);
     /*List<Project> findByIdTasks(Long id) ;*/
     List<ProjectTask> findByIdeTasks(String id);
     double totaldeHoras(String id);

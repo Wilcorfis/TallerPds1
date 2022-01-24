@@ -7,6 +7,7 @@ import co.com.poli.proyectos.exception.BadRequest;
 import co.com.poli.proyectos.exception.RecordNotFoundException;
 import co.com.poli.proyectos.repository.ProjectRepository;
 import co.com.poli.proyectos.repository.ProjectTaskRepository;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -30,30 +31,18 @@ public class ProjectServiceImpl implements ProjectService {
         return repository.findAll();
     }
 
+
     @Override
-    public Map<String,Object> create( Project project) {
+    public Project create( Project project) {
         if(!project.getProjectIdentifier().equals("")
                 && !project.getProjectName().equals("")){
-            return (Map<String, Object>) repository.save(project);
+            return repository.save(project);
         }
 
         Map<String,Object> response = new HashMap<String,Object>();
-        try{
-
-            response.put("request",project);
-            response.put("status","success");
-
-        }catch(Exception e){
-
-            response.put("status","Your request is invalid");
-
-        }
-
-        return  response;
-
-
-
-
+        response.put("request",project);
+        response.put("status","success");
+        throw new BadRequest();
 
     }
 

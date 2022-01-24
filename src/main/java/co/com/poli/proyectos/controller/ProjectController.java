@@ -44,7 +44,7 @@ public class ProjectController {
 
     //findByIdTasks
     @PostMapping
-    public Map<String,Object> create(@Valid @RequestBody Project project){
+    public Project create(@Valid @RequestBody Project project){
         return service.create(project);
     }
 }
