@@ -28,7 +28,13 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project create(Project project) {
-        return repository.save(project);
+        Project projectsave=new Project();
+        try{
+        projectsave= repository.save(project);
+        }catch(DataAcessException){
+            throw new BadRequestException();
+
+        }
     }
 
     /*public List<Project> findByIdTasks(Long id)  {
