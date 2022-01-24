@@ -21,11 +21,11 @@ import java.util.Date;
 public class ProjectTask extends EntityBase {
 
     @Column(name="name")
-    @NotBlank(message = "Name may not be blank")
+    @NotEmpty (message = "Name may not be blank")
     private String name;
 
     @Column(name="summary")
-    @NotBlank(message = "Name may not be blank")
+    @NotEmpty (message = "Name may not be blank")
     private String summary;
 
     @Column(name="acceptance_criteria")
