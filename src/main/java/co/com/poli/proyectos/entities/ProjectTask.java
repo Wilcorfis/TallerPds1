@@ -5,13 +5,10 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Range;
+
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 
@@ -42,12 +39,14 @@ public class ProjectTask extends EntityBase {
     private Status status;
 
     @Column(name="priority")
-    @Range(min = 1, max = 5)
+    @Min(value = 1)
+    @Max(value = 5)
     private int priority;
 
     @Column(name="hours")
-    @Range(min = 1, max = 8)
-    @Min(value = 0L)
+
+    @Min(value = 1L)
+    @Max(value = 8l)
     private Double hours;
 
     @Column(name="start_date")
