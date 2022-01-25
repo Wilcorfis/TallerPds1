@@ -23,17 +23,7 @@ public class ProjectTaskServiceImpl implements ProjectTaskService{
 
     @Override
     public ProjectTask create(ProjectTask projectTask) { 
-        if(!projectTask.getName().trim().equals("") || !projectTask.getSummary().trim().equals("")){
-                return repository.save(projectTask);
-        }
-        if(!projectTask.getName().trim().equals("") && !projectTask.getSummary().trim().equals("")){
-                return repository.save(projectTask);
-        }
 
-        Map<String,Object> response = new HashMap<String,Object>();
-        response.put("request",projectTask);
-        response.put("status","success");
-        throw new BadRequest();
         
     }
 
