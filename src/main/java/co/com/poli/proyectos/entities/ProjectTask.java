@@ -23,10 +23,12 @@ public class ProjectTask extends EntityBase {
 
     @Column(name="name")
     @NotEmpty
+    @NotBlank
     private String name;
 
     @Column(name="summary")
     @NotEmpty
+    @NotBlank
     private String summary;
 
     @Column(name="acceptance_criteria")

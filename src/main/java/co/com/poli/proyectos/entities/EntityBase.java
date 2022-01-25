@@ -15,7 +15,8 @@ public class EntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    @NotBlank(message = "Name may not be blank")
+    @NotEmpty
+    @NotBlank
     private Long id;
 
     @Override
