@@ -18,7 +18,7 @@ import java.util.List;
 public class Backlog extends EntityBase{
 
     @Column(name="project_identifier")
-    @NotEmpty(message = "Name may not be blank")
+    @NotEmpty
     private String projectIdentifier;
 
     @JsonBackReference

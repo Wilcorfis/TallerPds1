@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Length;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -19,18 +19,17 @@ import java.util.Date;
 @Table(name="project")
 public class Project extends EntityBase{
     @Column(name="project_name",unique=true)
-    @NotEmpty(message = "Name may not be blank")
+    @NotEmpty
     private String projectName;
 
     @Column(name="project_identifier",unique=true, updatable=false)
-    @NotEmpty(message = "Name may not be blank")
-    @Length(max = 7)
-    @Length(min = 5)
+    @NotEmpty
+    @Size(max = 7)
+    @Size(min = 5)
     private String ProjectIdentifier;
 
     @Column(name="description")
-    @NotEmpty(message = "Name may not be blank")
-    @NotBlank
+    @NotEmpty
     private String description;
 
     @Column(name="start_date")
