@@ -16,7 +16,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-
+ 
 @Table(name = "projectTask")
 public class ProjectTask extends EntityBase {
 
