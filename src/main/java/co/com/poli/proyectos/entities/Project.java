@@ -20,19 +20,19 @@ import java.util.Date;
 public class Project extends EntityBase{
     @Column(name="project_name",unique=true)
     @NotEmpty
-    @NotBlank
+
     private String projectName;
 
     @Column(name="project_identifier",unique=true, updatable=false)
     @NotEmpty
-    @NotBlank
+  
     @Size(max = 7)
     @Size(min = 5)
     private String ProjectIdentifier;
 
     @Column(name="description")
     @NotEmpty
-    @NotBlank
+ 
     private String description;
 
     @Column(name="start_date")
