@@ -18,7 +18,7 @@ public class ProjectTaskController {
         return service.findAll();
     }
     @PostMapping
-    public ProjectTask create(@RequestBody ProjectTask projectTask){
+    public ProjectTask create(@Valid @RequestBody ProjectTask projectTask){
         return service.create(projectTask);
     }
 }

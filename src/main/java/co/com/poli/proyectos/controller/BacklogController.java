@@ -18,7 +18,7 @@ public class BacklogController {
         return service.findAll();
     }
     @PostMapping
-    public Backlog create(@RequestBody Backlog backlog){
+    public Backlog create(@Valid @RequestBody Backlog backlog){
         return service.create(backlog);
     }
 }
