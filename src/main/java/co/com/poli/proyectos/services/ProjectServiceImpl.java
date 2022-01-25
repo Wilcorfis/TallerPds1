@@ -34,12 +34,13 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project create( Project project) {
-        if(!project.getProjectIdentifier().equals("")
-                || !project.getProjectName().equals("")){
+        if(!project.getProjectIdentifier().trim().equals("")
+                || !project.getProjectName().trim().equals("")){
+            if(){}
             return repository.save(project);
         }
-                if(!project.getProjectIdentifier().equals("")
-                && !project.getProjectName().equals("")){
+                if(!project.getProjectIdentifier().trim().equals("")
+                && !project.getProjectName().trim().equals("")){
             return repository.save(project);
         }
 
