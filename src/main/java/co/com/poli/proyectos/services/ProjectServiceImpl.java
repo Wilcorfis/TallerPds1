@@ -34,12 +34,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project create( Project project) {
-        if(!project.getProjectIdentifier().trim().equals("") || !project.getProjectName().trim().equals("")){
-            if(project.getProjectIdentifier().length()>=5 && project.getProjectIdentifier().length()<=7){
-                return repository.save(project);
-            }
 
-        }
         if(!project.getProjectIdentifier().trim().equals("") && !project.getProjectName().trim().equals("")){
             if(project.getProjectIdentifier().length()>=5 && project.getProjectIdentifier().length()<=7){
                 return repository.save(project);

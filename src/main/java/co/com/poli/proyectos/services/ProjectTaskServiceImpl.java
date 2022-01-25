@@ -24,22 +24,19 @@ public class ProjectTaskServiceImpl implements ProjectTaskService{
     @Override
     public ProjectTask create(ProjectTask projectTask) {
 
-        if(!projectTask.getName().trim().equals("") || !projectTask.getSummary().trim().equals("")){
-            if(projectTask.getBacklog()!=null) {
-                return repository.save(projectTask);
-            }
-        }
-        if(!projectTask.getName().trim().equals("") && !projectTask.getSummary().trim().equals("")){
-            if(projectTask.getBacklog()!=null) {
-                return repository.save(projectTask);
+        if(projectTask.getName().trim()!="" && projectTask.getSummary().trim()!="") {
+            if (projectTask.getBacklog() != null) {
+                if (projectTask.getHours() > 0 && projectTask.getHours() < 9 && projectTask.getPriority() > 0 && projectTask.getPriority() < 6) {
+                    return repository.save(projectTask);
+                }
             }
         }
 
-        Map<String,Object> response = new HashMap<>();
-        response.put("request",projectTask);
-        response.put("status","success");
-        throw new BadRequest();
-        
+            Map<String, Object> response = new HashMap<>();
+            response.put("request", projectTask);
+            response.put("status", "success");
+            throw new BadRequest();
+
     }
 
 }
