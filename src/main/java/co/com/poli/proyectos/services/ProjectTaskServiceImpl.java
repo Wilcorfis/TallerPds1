@@ -22,7 +22,7 @@ public class ProjectTaskServiceImpl implements ProjectTaskService{
     }
 
     @Override
-    public ProjectTask create(ProjectTask projectTask) {
+    public ProjectTask create(ProjectTask projectTask) { 
         if(!projectTask.getName().trim().equals("") || !projectTask.getSummary().trim().equals("")){
                 return repository.save(projectTask);
         }
