@@ -7,7 +7,7 @@ import co.com.poli.proyectos.exception.BadRequest;
 import co.com.poli.proyectos.exception.RecordNotFoundException;
 import co.com.poli.proyectos.repository.ProjectRepository;
 import co.com.poli.proyectos.repository.ProjectTaskRepository;
-import lombok.SneakyThrows;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;

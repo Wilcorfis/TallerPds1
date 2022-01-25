@@ -2,7 +2,7 @@ package co.com.poli.proyectos.services;
 
 import co.com.poli.proyectos.entities.ProjectTask;
 
-import co.com.poli.proyectos.entities.Status;
+
 import co.com.poli.proyectos.exception.BadRequest;
 import co.com.poli.proyectos.repository.ProjectTaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +29,13 @@ public class ProjectTaskServiceImpl implements ProjectTaskService{
                 return repository.save(projectTask);
             }
         }
-        if(!projectTask.getName().trim().equals("") & !projectTask.getSummary().trim().equals("")){
+        if(!projectTask.getName().trim().equals("") && !projectTask.getSummary().trim().equals("")){
             if(projectTask.getBacklog()!=null) {
                 return repository.save(projectTask);
             }
         }
 
-        Map<String,Object> response = new HashMap<String,Object>();
+        Map<String,Object> response = new HashMap<>();
         response.put("request",projectTask);
         response.put("status","success");
         throw new BadRequest();
