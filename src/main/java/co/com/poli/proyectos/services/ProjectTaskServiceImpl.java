@@ -29,7 +29,7 @@ public class ProjectTaskServiceImpl implements ProjectTaskService{
                 return repository.save(projectTask);
             }
         }
-        if(!projectTask.getName().trim().equals("") && !projectTask.getSummary().trim().equals("")){
+        if(!projectTask.getName().trim().equals("") & !projectTask.getSummary().trim().equals("")){
             if(projectTask.getBacklog()!=null) {
                 return repository.save(projectTask);
             }
