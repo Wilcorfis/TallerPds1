@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -41,12 +42,12 @@ public class ProjectTask extends EntityBase {
     private Status status;
 
     @Column(name="priority")
-    @Size(min = 1, max = 5)
+    @Range(min = 1, max = 5)
     private int priority;
 
     @Column(name="hours")
+    @Range(min = 1, max = 8)
     @Min(value = 0L)
-    @Size(min = 1, max = 8)
     private Double hours;
 
     @Column(name="start_date")
@@ -61,6 +62,8 @@ public class ProjectTask extends EntityBase {
     @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="backlog_id")
+    @NotEmpty
+    @NotBlank
     private Backlog backlog;
 
     @Override
