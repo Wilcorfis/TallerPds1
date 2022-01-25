@@ -21,12 +21,12 @@ public class ProjectTask extends EntityBase {
 
     @Column(name="name")
     @NotEmpty
-    @NotBlank
+    //@NotBlank
     private String name;
 
     @Column(name="summary")
     @NotEmpty
-    @NotBlank
+    //@NotBlank
     private String summary;
 
     @Column(name="acceptance_criteria")
@@ -62,7 +62,7 @@ public class ProjectTask extends EntityBase {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="backlog_id")
     @NotEmpty
-    @NotBlank
+    //@NotBlank
     private Backlog backlog;
 
     @Override
