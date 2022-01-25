@@ -22,7 +22,7 @@ public class ProjectTask extends EntityBase {
 
     @Column(name="name")
     @NotEmpty
-    private String name;
+    private String name; 
 
     @Column(name="summary")
     @NotEmpty
