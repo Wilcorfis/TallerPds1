@@ -30,6 +30,7 @@ public class Project extends EntityBase{
 
     @Column(name="description")
     @NotEmpty(message = "Name may not be blank")
+    @NotBlank
     private String description;
 
     @Column(name="start_date")
