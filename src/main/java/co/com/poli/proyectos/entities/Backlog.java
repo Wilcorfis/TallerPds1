@@ -20,7 +20,7 @@ public class Backlog extends EntityBase{
     @Column(name="project_identifier")
     @NotEmpty
     private String projectIdentifier;
-
+//FetchType.lAZY
     @JsonBackReference
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="project_id")
