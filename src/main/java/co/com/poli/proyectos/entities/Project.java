@@ -19,9 +19,9 @@ import java.util.Date;
 @Entity
 @Table(name="project")
 public class Project extends EntityBase{
+
     @Column(name="project_name",unique=true)
     @NotEmpty
-    @NotNull
 
     private String projectName;
 
